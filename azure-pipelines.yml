@@ -9,8 +9,6 @@ strategy:
   matrix:
     chrome:
       browser: chrome
-    firefox:
-      browser: firefox
   maxParallel: 2
   
 steps:
