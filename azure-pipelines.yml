@@ -1,0 +1,39 @@
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+strategy:
+  matrix:
+    chrome:
+      browser: chrome
+    firefox:
+      browser: firefox
+  maxParallel: 2
+  
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+  # Starter pipeline
+- task: Maven@4
+  inputs:
+    mavenPomFile: 'RestAssuredAutomationFramework-master/pom.xml'
+    goals: 'clean test'
+    options: '-Dbrowser=$(browser) -Dsurefire.suiteXmlFiles=testng.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    testRunTitle: 'TestNG Results'
+
+
