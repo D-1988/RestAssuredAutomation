@@ -45,7 +45,12 @@
 </dependency>
 
 
-
+<dependency>
+  <groupId>org.projectlombok</groupId>
+  <artifactId>lombok</artifactId>
+  <version>1.18.32</version> <!-- Use latest available -->
+  <scope>provided</scope>
+</dependency>
 <!-- https://mvnrepository.com/artifact/org.testng/testng -->
 <dependency>
     <groupId>org.testng</groupId>
