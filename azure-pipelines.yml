@@ -22,7 +22,7 @@ steps:
   inputs:
     mavenPomFile: 'RestAssuredAutomationFramework-master/pom.xml'
     goals: 'clean test'
-    options: '-Dtestng.xml=testng.xml'
+    options: '-Dsurefire.suiteXmlFiles=testng.xml'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
