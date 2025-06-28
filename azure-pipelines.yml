@@ -36,7 +36,7 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: 'RestAssuredAutomationFramework-master/target/surefire-reports/'
+    targetPath: 'RestAssuredAutomationFramework-master/target/surefire-reports//index.html'
     artifact: 'ExtentReport'
     publishLocation: 'pipeline'
 
