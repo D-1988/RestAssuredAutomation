@@ -36,7 +36,7 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '/TestResults/ExtentReport'
+    targetPath: '/target/surefire-reports/'
     artifact: 'ExtentReport'
     publishLocation: 'pipeline'
 
