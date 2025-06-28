@@ -34,6 +34,9 @@ steps:
     # Your test command that generates Extent Report
   displayName: 'Run Tests'
 
-
+- task: PublishAllureReport@1
+  inputs:
+    testResultsDir: 'RestAssuredAutomationFramework-master/target/surefire-reports'
+    reportName: 'index.html'
 
 
