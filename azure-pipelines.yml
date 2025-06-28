@@ -29,9 +29,15 @@ steps:
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
 
-- task: PublishTestResults@2
+- script: |
+    echo "Running tests..."
+    # Your test command that generates Extent Report
+  displayName: 'Run Tests'
+
+- task: PublishPipelineArtifact@1
   inputs:
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    testRunTitle: 'TestNG Results'
+    targetPath: '/TestResults/ExtentReport'
+    artifact: 'ExtentReport'
+    publishLocation: 'pipeline'
 
 
